@@ -15,12 +15,21 @@
 <div>Kompass (alpha, beta, gamma) = (<span id="orientation-a"></span>,<span id="orientation-b"></span>,<span id="orientation-g"></span>)</div>
 <script>
   
-window.addEventListener('devicemotion', function(event){
-  var xacceleration = event.acceleration.x;
-  document.getElementById("accel-x").innerHTML = xacceleration;
-});
+//https://www.javascript-kurs.de/javascript-sonsoren-handy-tablet-lagesensor.htm
+//https://marmelab.com/blog/2020/02/05/getting-the-ball-rolling-with-devicemotion.html
+
+//https://code.tutsplus.com/tutorials/an-introduction-to-the-device-orientation-api--cms-21067
+  window.addEventListener('devicemotion', function(event){
+
+    var xacceleration= Math.round(event.acceleration.x*10)/10;
+    document.getElementById("accel-x").innerHTML=xacceleration;
+    
+    var xacceleration= Math.round(event.accelerationIncludingGravity.x*10)/10;
+    document.getElementById("neigung-x").innerHTML=xacceleration;
+    
+    });
     
   </script>
-</body>
 
+  </body>
 </html>
